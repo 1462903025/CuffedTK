@@ -7,36 +7,36 @@ namespace CuffedTK
 {
     public sealed class Config : IConfig
     {
-        [Description("Should the plugin be enabled?")]
+        [Description("是否应启用该插件？")]
         public bool IsEnabled { get; set; } = true;
 
-        [Description("For how long should the Hint be shown to the Attacker? (-1 = Disabled)")]
+        [Description("提示应该向攻击者显示多长时间？（-1=关闭）")]
         public ushort AttackerHintTime { get; set; } = 3;
 
-        [Description("What hint should the Attacker be displayed when trying to damage a Cuffed D-Class? %PLAYER% will be replaced with the Target Username")]
-        public string AttackerHint { get; set; } = "You cannot damage %PLAYER% because he is cuffed!";
+        [Description("当攻击者试图损坏被捆绑的D-Class时，应该显示什么提示？ %PLAYER% 将替换为目标用户名")]
+        public string AttackerHint { get; set; } = "你不能伤害 %PLAYER% ，因为他被捆绑了！";
 
-        [Description("What Team should not be allowed to damage an Cuffed D-Class! CDP = Class-D, CHI = Chaos, MTF = Nine-Tailed Fox, RSC = Scientists, TUT = Tutorial")]
+        [Description("哪支队伍不允许破坏被捆绑的DD！ CDP = Class-D, CHI = Chaos, MTF = Nine-Tailed Fox, RSC = Scientists, TUT = Tutorial")]
         public HashSet<Team> DisallowDamagetodclass { get; set; } = new HashSet<Team>
         {
             Team.MTF,
             Team.RSC
         };
 
-        [Description("What Team should not be allowed to damage an Cuffed Scientists! CDP = Class-D, CHI = Chaos, MTF = Nine-Tailed Fox, RSC = Scientists, TUT = Tutorial")]
+        [Description("什么队伍不允许伤害一个被铐起来的科学家！ CDP = Class-D, CHI = Chaos, MTF = Nine-Tailed Fox, RSC = Scientists, TUT = Tutorial")]
         public HashSet<Team> DisallowDamagetoScientists { get; set; } = new HashSet<Team>
         {
             Team.CDP,
             Team.CHI
         };
 
-        [Description("For how long should the hint be shown to the Attacker? (-1 = Disabled)")]
+        [Description("提示应该向攻击者显示多长时间？ (-1 = 关闭)")]
         public int DamageTypesTime { get; set; } = 3;
 
-        [Description("What hint should be displayed when trying to damage a Cuffed D-Class with a Disallowed DamageType? %PLAYER% will be replaced with the Target Username and %DAMAGETYPE% will be replaced with the DamageType")]
-        public string DamageTypesMessage { get; set; } = "You cannot damage %PLAYER% with %DAMAGETYPE%!";
+        [Description("当不允许攻击被捆绑DD的队伍时，应显示什么提示？  %PLAYER% 将替换为目标用户名， %DAMAGETYPE% 将替换为损伤类型")]
+        public string DamageTypesMessage { get; set; } = "你不能用 %DAMAGETYPE% 伤害 %PLAYER% ！";
 
-        [Description("What DamageType should not be allowed to damage a Cuffed D-Class or Cuffed Scientist? Check https://exiled-team.github.io/EXILED/api/Exiled.API.Enums.DamageType.html for all DamageTypes")]
+        [Description("什么样的损伤类型不允许损伤戴袖口的D级或戴袖口的科学家？ 打开 https://exiled-team.github.io/EXILED/api/Exiled.API.Enums.DamageType.html 查看 武器内容")]
         public HashSet<DamageType> DisallowedDamageTypes { get; set; } = new HashSet<DamageType>
         {
             DamageType.Explosion,
